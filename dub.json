@@ -1,0 +1,8 @@
+{
+	"name": "container",
+	"description": "",
+	"copyright": "Copyright © 2016, Daman",
+	"authors": ["Damian"],
+
+	"targetType": "library",
+}
