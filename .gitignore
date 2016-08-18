@@ -1,1 +1,7 @@
+# dub files
 .dub
+
+# windows files
+*.dll
+*.lib
+*.exe
