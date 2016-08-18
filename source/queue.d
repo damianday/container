@@ -10,7 +10,6 @@ import std.experimental.allocator.mallocator : Mallocator;
 public struct Queue(T, Alloc = Mallocator)
 {
 private:
-    //IAllocator _allocator;
     static if (stateSize!Alloc) Alloc _allocator;
     else alias _allocator = Alloc.instance;
     size_t _head = 0;
@@ -97,7 +96,6 @@ public:
 
     this(size_t capacity)
     {
-        //_allocator = allocator;
         _head = 0;
         _tail = 0;
         _count = 0;
@@ -112,7 +110,6 @@ public:
     void dispose()
     {
         clear();
-        //_allocator.dispose(_payload);
     }
     
     bool contains(T item)
@@ -201,8 +198,6 @@ public:
     }
     
     // Getter and setter
-    //IAllocator allocator() { return _allocator; }
-    //void allocator(IAllocator a) { /*assert(empty);*/ _allocator = a; }
     size_t length() { return _count; }
     size_t capacity() { return getCapacity(); }
     void capacity(size_t value) { setCapacity(value); }

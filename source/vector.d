@@ -13,7 +13,6 @@ import std.stdio;
 public struct Vector(T, Alloc = Mallocator)
 {
 private:
-    //IAllocator _allocator;
     static if (stateSize!Alloc) Alloc _allocator;
     else alias _allocator = Alloc.instance;
     T[] _payload = null;
@@ -75,7 +74,6 @@ private:
 public:
     this(size_t capacity)
     {
-        //this._allocator = allocator;
         this._count = 0;
         this._payload = _allocator.makeArray!T(capacity);
     }
@@ -355,8 +353,6 @@ public:
     }
 
     // Getter and setter
-    //IAllocator allocator() { return _allocator; }
-    //void allocator(IAllocator a) { /*assert(empty);*/ _allocator = a; }
     size_t count() { return _count; }
     void count(size_t value) { setCount(value); }
     size_t capacity() { return getCapacity(); }
